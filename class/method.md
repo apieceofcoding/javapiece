@@ -12,10 +12,10 @@ class Car {
     int year;
     int speed;
 
-    Car(String b, int y) {
-        brand = b;
-        year = y;
-        speed = 0;
+    Car(String brand, int year) {
+        this.brand = brand;
+        this.year = year;
+        this.speed = 0;
     }
 
     void start() {
@@ -45,10 +45,10 @@ class Car {
     int year;
     int speed;
 
-    Car(String b, int y) {
-        brand = b;
-        year = y;
-        speed = 0;
+    Car(String brand, int year) {
+        this.brand = brand;
+        this.year = year;
+        this.speed = 0;
     }
 
     void start() {
@@ -72,7 +72,7 @@ class Car {
 위의 코드에서 `accelerate()` 메소드를 오버로딩하여, 매개변수가 없는 경우에는 기본적으로 10km/h씩 속도를 증가시키는 버전을 추가했습니다. 이제 `accelerate()` 메소드를 다음과 같이 호출할 수 있습니다.
 
 ```java
-javaCopy codeCar myCar = new Car("Toyota", 2022);
+Car myCar = new Car("Hyundai", 2022);
 myCar.accelerate(20);  // 속도가 20km/h 증가하여 20km/h 입니다.
 myCar.accelerate();    // 속도가 10km/h 증가하여 30km/h 입니다.
 ```

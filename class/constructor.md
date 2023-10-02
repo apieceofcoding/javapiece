@@ -63,7 +63,7 @@ class Car {
 이 생성자를 사용하여 객체를 초기화하려면 다음과 같이 호출합니다.
 
 ```java
-Car myCar = new Car("Toyota", 2023);
+Car myCar = new Car("Hyundai", 2023);
 ```
 
 
@@ -100,7 +100,7 @@ class Car {
 이렇게 부 생성자를 정의하면, 객체를 다양한 방법으로 초기화할 수 있습니다.
 
 ```java
-Car car1 = new Car("Toyota", 2023);  // 매개변수가 있는 생성자 호출
+Car car1 = new Car("Hyundai", 2023);  // 매개변수가 있는 생성자 호출
 Car car2 = new Car();               // 부생성자 호출
 ```
 

@@ -39,9 +39,9 @@ Car myCar = new Car();
 System.out.println(myCar.brand); // null
 System.out.println(myCar.year); // 0
 
-myCar.brand = "Toyota";
+myCar.brand = "Hyundai";
 myCar.year = 2022;
-System.out.println(myCar.brand); // Toyota
+System.out.println(myCar.brand); // Hyundai
 System.out.println(myCar.year); // 2022
 
 System.out.println(myCar); // 인스턴스가 저장된 주소
