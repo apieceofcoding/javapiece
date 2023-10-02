@@ -19,4 +19,4 @@
   * [클래스와 객체의 개념](class/class-vs-object.md)
   * [생성자](class/constructor.md)
   * [메소드](class/method.md)
-  * [상속과 다형성](class/undefined.md)
+  * [상속과 다형성](class/inheritance.md)

@@ -78,6 +78,41 @@ class Car extends Vehicle {
 
 
 
+### 다른 자식 클래스
+
+```java
+class Bicycle extends Vehicle {
+    boolean hasBell;
+
+    Bicycle(int speed, boolean hasBell) {
+        super(speed);
+        this.hasBell = hasBell;
+    }
+
+    @Override
+    void start() {
+        super.start();
+        System.out.println("자전거가 출발합니다.");
+    }
+
+    void alarm() {
+        if (hasBell) {
+            System.out.println("벨을 울립니다.");
+        } else {
+            System.out.println("(육성) 지나가겠습니다.");
+        }
+    }
+}
+```
+
+운송수단 (Vehicle) 을 정의해 놓았으므로 그 하위의 다른 운송수단도 손쉽게 추가 가능합니다.
+
+부모클래스가 가진 `speed` 필드와 `start()` 메소드를 그대로 물려받을 수 있으며, 위와 같이 `start()` 메소드를 재정의 (override) 할 수 있습니다.
+
+
+
+
+
 ### 다형성 (Polymorphism)
 
 다형성은 상속과 관련하여 부모 클래스 타입의 변수로 자식 클래스의 객체를 참조할 수 있는 개념을 나타냅니다. 이는 객체 지향 프로그래밍의 중요한 특징 중 하나입니다.
