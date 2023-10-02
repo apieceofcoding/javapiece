@@ -1,4 +1,10 @@
-# 들어가며
+---
+description: 자바를 시작해봅시다.
+---
+
+# 자바한조각
+
+<figure><img src=".gitbook/assets/코딩한조각.png" alt="" width="375"><figcaption><p>a piece of coding</p></figcaption></figure>
 
 안녕하세요. _코딩한조각_ 입니다.
 
