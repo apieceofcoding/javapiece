@@ -1,6 +1,6 @@
 # Table of contents
 
-* [들어가며](README.md)
+* [자바한조각](README.md)
 * [☕ 자바 개요](inroduction/README.md)
   * [자바란 무엇인가?](inroduction/about-java.md)
   * [자바의 역사](inroduction/history.md)
