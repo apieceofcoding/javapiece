@@ -1,4 +1,4 @@
-# 1. 변수와 데이터 타입
+# 변수와 데이터 타입
 
 ### 1.1 변수
 
@@ -118,4 +118,12 @@ int myAge = 30;
 * `boolean`은 논리값을 저장하는 데이터 타입입니다.
 * `true`나 `false` 중 하나의 값을 가집니다.
 * 주로 조건문과 제어문에서 사용됩니다.
+
+
+
+### 한 눈에 정리
+
+<table data-full-width="true"><thead><tr><th>자료형</th><th>바이트 크기</th><th>최솟값</th><th>최댓값</th></tr></thead><tbody><tr><td>byte</td><td>1</td><td>-128</td><td>127</td></tr><tr><td>short</td><td>2</td><td>-32,768</td><td>32,767</td></tr><tr><td>int</td><td>4</td><td>-2,147,483,648</td><td>2,147,483,647</td></tr><tr><td>long</td><td>8</td><td>-9,223,372,036,854,775,808</td><td>9,223,372,036,854,775,807</td></tr><tr><td>float</td><td>4</td><td>대략 -3.4 x 10^38</td><td>대략 3.4 x 10^38</td></tr><tr><td>double</td><td>8</td><td>대략 -1.7 x 10^308</td><td>대략 1.7 x 10^308</td></tr><tr><td>char</td><td>2</td><td>'\u0000' (0)</td><td>'\uffff' (65,535)</td></tr><tr><td>boolean</td><td>1 (또는 작을 수 있음)</td><td>false</td><td>true</td></tr></tbody></table>
+
+
 
