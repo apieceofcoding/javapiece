@@ -120,6 +120,7 @@ class Car {
     
     void stop() {
         speed = 0;
+        // TODO: mileage 계산하여 변경..
     }
 }
 ```

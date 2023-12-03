@@ -6,13 +6,41 @@
 
 상속은 기존 클래스(부모 클래스 또는 슈퍼 클래스)의 특성(멤버 변수 및 메서드)을 새로운 클래스(자식 클래스 또는 서브 클래스)가 재사용하는 것을 말합니다. 자식 클래스는 부모 클래스의 모든 멤버를 상속받으며, 추가적인 멤버나 메서드를 정의할 수 있습니다.
 
-#### 예제:  클래스와 `Car` 클래스
+
+
+#### 전기차가 추가되었습니다!
+
+```java
+class ElectricCar {
+    String name;
+    int mileage;
+    int speed;
+    int batteryAmount;
+}
+
+```
+
+전기차 클래스 (`EletricCar`)는 기존 자동차 클래스(`Car`)와 한가지 다른 변수가 추가되었습니다. 바로 배터리양(batteryAmount) 인데요.&#x20;
+
+기존 코드 `Car`를 추상화하여 재사용해볼 수 있지 않을까요?
+
+
+
+이를 위해 `Car` 와 `ElectricCar` 의 공통 필드를 가진 클래스 `Vehicle` 을 만들어보겠습니다.
+
+
+
+#### 부모클래스 : `Vehicle` (운송수단) 클래스
 
 ```java
 class Vehicle {
+    String name;
+    int mileage;
     int speed;
 
-    Vehicle(int speed) {
+    Vehicle(String name, int mileage, int speed) {
+        this.name = name;
+        this.mileage = mileage;
         this.speed = speed;
     }
 
@@ -22,22 +50,32 @@ class Vehicle {
 }
 ```
 
-```java
-class Car extends Vehicle {
-    int fuel;
+위와 같이 `Vehicle` 이라는 부모 클래스를 정의한 후,
 
-    Car(int speed, int fuel) {
-        super(speed);
-        this.fuel = fuel;
+아래와 같이 상속을 이용해 `ElectricCar` 라는 자식클래스를 만들어봅시다.
+
+
+
+```java
+class ElectricCar extends Vehicle {
+    int batteryAmount;
+
+    ElectricCar(String name, int mileage, int speed, int batteryAmount) {
+        super(name, mileage, speed);
+        this.batteryAmount = batteryAmount;
     }
-    
-    boolean hasFuel() {
-        return fuel > 0;
+
+    @Override
+    void start() {
+        super.start();
+        System.out.println("전기차가 출발합니다.");
     }
 }
 ```
 
-위의 예제에서 `Car` 클래스는 `Vehicle` 클래스를 상속받고 있습니다. `Car` 클래스는 `Vehicle` 클래스의 모든 멤버 변수와 메서드를 상속받으며, `fuel` 멤버 변수와 `hasFuel()` 메서드를 추가로 정의했습니다.
+이처럼 운송수단 (Vehicle) 을 정의해 놓았으므로 그 하위의 다른 운송수단도 손쉽게 추가 가능합니다.
+
+부모클래스가 가진 `name, mileage, speed` 필드와 `start()` 메소드를 그대로 물려받을 수 있으며, 위와 같이 `start()` 메소드를 재정의 (override) 할 수 있습니다.
 
 
 
@@ -51,63 +89,38 @@ class Car extends Vehicle {
 
 메서드 오버라이딩은 자식 클래스가 부모 클래스의 메서드를 재정의하는 것을 의미합니다. 메서드 시그니처(이름, 매개변수, 반환 값)는 동일해야 합니다.
 
-```java
-class Car extends Vehicle {
-    int fuel;
-
-    Car(int speed, int fuel) {
-        super(speed);
-        this.fuel = fuel;
-    }
-    
-    boolean hasFuel() {
-        return fuel > 0;
-    }
-
-    @Override
-    void start() {
-        super.start();
-        System.out.println("엔진을 가동합니다.");
-    }
-}
-```
-
 위의 코드에서 `@Override` 어노테이션을 사용하여 `start()` 메서드를 오버라이딩하고 부모 클래스의 동작을 확장했습니다.
 
 `super.start()`를 사용하여 부모 클래스의 `start()` 메서드를 호출하고, 자식 클래스에서 추가 동작을 수행합니다.
 
 
 
-### 다른 자식 클래스
+
+
+#### Car 클래스도 Vehicle 상속하기
+
+기존 내연기관차인 `Car` 도 새롭게 만든 부모 클래스 `Vehicle` 을 상속하여 재구성해봅시다.
 
 ```java
-class Bicycle extends Vehicle {
-    boolean hasBell;
+class Car extends Vehicle {
+    int fuel;
 
-    Bicycle(int speed, boolean hasBell) {
-        super(speed);
-        this.hasBell = hasBell;
+    ElectricCar(String name, int mileage, int speed, int fuel) {
+        super(name, mileage, speed);
+        this.fuel = fuel;
     }
-
+    
     @Override
     void start() {
         super.start();
-        System.out.println("자전거가 출발합니다.");
-    }
-
-    void alarm() {
-        if (hasBell) {
-            System.out.println("벨을 울립니다.");
-        } else {
-            System.out.println("(육성) 지나가겠습니다.");
-        }
+        System.out.println("내연차가 출발합니다.");
     }
 }
 ```
 
-운송수단 (Vehicle) 을 정의해 놓았으므로 그 하위의 다른 운송수단도 손쉽게 추가 가능합니다.
+위의 예제에서 `Car` 클래스는 `Vehicle` 클래스를 상속받고 있습니다. `Car` 클래스는 `Vehicle` 클래스의 모든 멤버 변수와 메서드를 상속받으며, `fuel` 멤버 변수와 `hasFuel()` 메서드를 추가로 정의했습니다.
 
-부모클래스가 가진 `speed` 필드와 `start()` 메소드를 그대로 물려받을 수 있으며, 위와 같이 `start()` 메소드를 재정의 (override) 할 수 있습니다.
+
 
 
 
@@ -118,19 +131,19 @@ class Bicycle extends Vehicle {
 다형성은 상속과 관련하여 부모 클래스 타입의 변수로 자식 클래스의 객체를 참조할 수 있는 개념을 나타냅니다. 이는 객체 지향 프로그래밍의 중요한 특징 중 하나입니다.
 
 ```java
-Vehicle myCar = new Car(0, 20);
-myCar.start(); // "운송수단이 출발합니다."와 "엔진을 가동합니다."가 출력됩니다.
+Vehicle myCar = new Car("내연차", 100, 0, 20);
+myCar.start(); // "운송수단이 출발합니다."와 "내연차가 출발합니다."가 출력됩니다.
 ```
 
 위의 코드에서 `myCar` 변수는 `Vehicle` 클래스의 타입이지만, 실제로 `Car` 클래스의 객체를 참조하고 있습니다. 이렇게 다형성을 사용하면 부모 클래스로 일반화된 코드를 작성할 수 있으며, 런타임에 실제 객체의 메서드가 호출됩니다.
 
 
 
-또한 자전거 역시 비슷한 방법으로 생성할 수 있습니다.
+또한 전기차 역시 비슷한 방법으로 생성할 수 있습니다.
 
 ```java
-Vehicle myBicycle = new Bicycle(0, true);
-myBicycle.start(); // "운송수단이 출발합니다."와 "자전거가 출발합니다."가 출력됩니다.
+Vehicle myElectricCar = new ElectricCar("전기차", 200, 0, 70);
+myBicycle.start(); // "운송수단이 출발합니다."와 "전기차가 출발합니다."가 출력됩니다.
 ```
 
 이렇게 하면 둘은 공통적으로 `Vehicle` 타입을 가지므로 예를 들어 아래 리스트에서 한 번에 관리할 수 있습니다.
@@ -138,7 +151,7 @@ myBicycle.start(); // "운송수단이 출발합니다."와 "자전거가 출발
 ```java
 List<Vehicle> vehicles = new ArrayList<>();
 vehicles.add(myCar);
-vehicles.add(myBicycle);
+vehicles.add(myElectricCar);
 
 for (Vehicle vehicle: vehicles) {
     vehicle.start();
@@ -146,9 +159,9 @@ for (Vehicle vehicle: vehicles) {
 
 결과 :
 운송수단이 출발합니다.
-엔진을 가동합니다.
+내연차가 출발합니다.
 운송수단이 출발합니다.
-자전거가 출발합니다.
+전기차가 출발합니다.
 ```
 
 
