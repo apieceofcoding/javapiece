@@ -16,8 +16,8 @@
 
 ```java
 class Car {
-    String brand;
-    int year;
+    String name;
+    int mileage;
 
     void start() {
         System.out.println("차량이 출발합니다.");
@@ -25,7 +25,7 @@ class Car {
 }
 ```
 
-여기서 `Car` 클래스는 자동차의 템플릿을 정의하며, `brand`와 `year`는 자동차의 속성을 나타내고, `start()`는 자동차의 동작을 나타냅니다.
+여기서 `Car` 클래스는 자동차의 템플릿을 정의하며, `name`와 `mileage`는 자동차의 속성을 나타내고, `drive()`는 자동차의 동작을 나타냅니다.
 
 
 
@@ -36,13 +36,13 @@ class Car {
 ```java
 Car myCar = new Car();
 
-System.out.println(myCar.brand); // null
-System.out.println(myCar.year); // 0
+System.out.println(myCar.name); // null
+System.out.println(myCar.mileage); // 0
 
-myCar.brand = "Hyundai";
-myCar.year = 2022;
-System.out.println(myCar.brand); // Hyundai
-System.out.println(myCar.year); // 2022
+myCar.name = "Hyundai";
+myCar.mileage = 100;
+System.out.println(myCar.name); // Hyundai
+System.out.println(myCar.mileage); // 100
 
 System.out.println(myCar); // 인스턴스가 저장된 주소
 ```

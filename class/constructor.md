@@ -6,8 +6,8 @@
 
 ```java
 class Car {
-    String brand;
-    int year;
+    String name;
+    int mileage;
 }
 ```
 
@@ -15,8 +15,8 @@ class Car {
 
 ```java
 class Car {
-    String brand;
-    int year;
+    String name;
+    int mileage;
     
     // 기본 생성자
     Car() {}
@@ -39,31 +39,31 @@ Car myCar = new Car();
 
 ```java
 class Car {
-    String brand;
-    int year;
+    String name;
+    int mileage;
 
     // 매개변수가 있는 생성자
-    Car(String brand, int year) {
-        this.brand = brand;
-        this.year = year;
+    Car(String name, int mileage) {
+        this.name = name;
+        this.mileage = mileage;
     }
 }
 ```
 
 > 💡**this**
 >
-> 여기서 `this.brand` 는 위에 정의된 멤버변수 `String brand` 를 가리킵니다.
+> 여기서 `this.name` 는 위에 정의된 멤버변수 `String name` 를 가리킵니다.
 >
 > 즉, `this` 키워드는 자기 자신 객체의 주소를 가리키는 포인터라고 생각하시면 됩니다.
 >
-> 생성자에서 매개변수로 받는 `brand` 와 멤버변수 `brand` 이름이 동일하기 때문에, 관례상 왼쪽에는 `this.brand` 로 표기하여 구별한 것입니다. .
+> 생성자에서 매개변수로 받는 `name` 과 멤버변수 `name` 이름이 동일하기 때문에, 관례상 왼쪽에는 `this.name` 로 표기하여 구별한 것입니다.
 
 
 
 이 생성자를 사용하여 객체를 초기화하려면 다음과 같이 호출합니다.
 
 ```java
-Car myCar = new Car("Hyundai", 2023);
+Car myCar = new Car("Hyundai", 100);
 ```
 
 
@@ -80,19 +80,19 @@ Car myCar = new Car("Hyundai", 2023);
 
 ```java
 class Car {
-    String brand;
-    int year;
+    String name;
+    int mileage;
 
     // 매개변수가 있는 생성자
-    Car(String brand, int year) {
-        this.brand = brand;
-        this.year = year;
+    Car(String name, int mileage) {
+        this.name = name;
+        this.mileage = mileage;
     }
 
     // 부 생성자1
-    Car(String brand) {
-        this.brand = brand;
-        year = 2023;
+    Car(String name) {
+        this.name = name;
+        mileage = 100;
     }
 }
 ```
@@ -100,8 +100,8 @@ class Car {
 이렇게 부 생성자를 정의하면, 객체를 다양한 방법으로 초기화할 수 있습니다.
 
 ```java
-Car car1 = new Car("Hyundai", 2023);  // 매개변수가 있는 생성자 호출
-Car car2 = new Car();               // 부생성자 호출
+Car car1 = new Car("Hyundai", 100);  // 매개변수가 있는 생성자 호출
+Car car2 = new Car("Hyundai");       // 부생성자 호출
 ```
 
 부 생성자를 사용하여 클래스의 객체를 초기화하려면, 생성자의 매개변수에 전달할 값을 조절하면 됩니다. 이렇게 하면 클래스의 유연성과 재사용성을 향상시킬 수 있습니다.
@@ -114,23 +114,23 @@ Car car2 = new Car();               // 부생성자 호출
 
 ```java
 class Car {
-    String brand;
-    int year;
+    String name;
+    int mileage;
 
     // 매개변수가 있는 생성자
-    Car(String brand, int year) {
-        this.brand = brand;
-        this.year = year;
+    Car(String name, int mileage) {
+        this.name = name;
+        this.mileage = mileage;
     }
 
     // 부 생성자2
-    Car(String brand) {
-        this(brand, 2023);
+    Car(String name) {
+        this(name, 100);
     }
 }
 ```
 
-여기서 `this()` 는 위에 있는 생성자`Car(String brand, int year)`를 호출합니다.
+여기서 `this()` 는 위에 있는 생성자`Car(String name, int mileage)`를 호출합니다.
 
 
 

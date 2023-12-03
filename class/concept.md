@@ -21,12 +21,12 @@ class Car {
 
 ```java
 class Car {
-    String brand;
-    int year;
+    String name;
+    int mileage;
 }
 ```
 
-위의 `brand`와 `year`는 `Car` 클래스의 멤버 변수입니다.
+위의 `name`와 `mileage`는 `Car` 클래스의 멤버 변수입니다.
 
 멤버변수는 통상 필드(field), 프로퍼티(property = 속성) 라고도 불립니다.
 
