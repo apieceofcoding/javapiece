@@ -23,9 +23,13 @@
 아래의 예제는 `Vehicle`를 추상 클래스로 정의한 후, `Car`와 `Bicycle` 클래스에서 이를 상속하고 필요한 메서드를 구현하는 사용 예제입니다.
 
 <pre class="language-java"><code class="lang-java"><strong>abstract class Vehicle {
-</strong>    int speed;
+</strong>    String name;
+    int mileage;
+    int speed;
 
-    Vehicle(int speed) {
+    Vehicle(String name, int mileage, int speed) {
+        this.name = name;
+        this.mileage = mileage;
         this.speed = speed;
     }
 
@@ -38,48 +42,48 @@
 class Car extends Vehicle {
     int fuel;
 
-    Car(int speed, int fuel) {
-        super(speed);
+    Car(String name, int mileage, int speed, int fuel) {
+        super(name, mileage, speed, fuel);
         this.fuel = fuel;
     }
 
-    boolean hasFuel() {
-        return fuel > 0;
-    }
-
+    // Vehicle 추상클래스에 있는 추상메소드이므로 반드시 구현
     @Override
     void start() {
         System.out.println("엔진을 가동합니다.");
+    }
+    
+    // 그 외 메소드 구현 (선택)
+    boolean hasFuel() {
+        return fuel > 0;
     }
 }
 ```
 
 ```java
-// Bicycle 클래스도 Vehicle 추상 클래스를 상속하고 추상 메서드 구현
-class Bicycle extends Vehicle {
-    boolean hasBell;
+// ElectricCar 클래스도 Vehicle 추상 클래스를 상속하고 추상 메서드 구현
+class ElectricCar extends Vehicle {
+    int batteryAmount;
 
-    Bicycle(int speed, boolean hasBell) {
-        super(speed);
-        this.hasBell = hasBell;
+    ElectricCar(String name, int mileage, int speed, int batteryAmount) {
+        super(name, mileage, speed);
+        this.batteryAmount = batteryAmount;
     }
 
+    // Vehicle 추상클래스에 있는 추상메소드이므로 반드시 구현
     @Override
     void start() {
         System.out.println("자전거가 출발합니다.");
     }
 
-    void alarm() {
-        if (hasBell) {
-            System.out.println("벨을 울립니다.");
-        } else {
-            System.out.println("(육성) 지나가겠습니다.");
-        }
+    // 그 외 메소드 구현 (선택)
+    boolean hasBattery() {
+        return batteryAmount > 0;
     }
 }
 ```
 
-이 예제에서 `Vehicle`는 추상 클래스로 정의되었고, 하위 클래스인 `Car`와 `Bicycle`에서 추상 메서드인 `start()`를 구체적으로 구현했습니다. 추상 클래스를 사용하여 공통된 메서드와 추상 메서드를 포함하는 클래스 계층을 구성할 수 있습니다.
+이 예제에서 `Vehicle`는 추상 클래스로 정의되었고, 하위 클래스인 `Car`와 `ElectricCar`에서 추상 메서드인 `start()`를 구체적으로 구현했습니다. 추상 클래스를 사용하여 공통된 메서드와 추상 메서드를 포함하는 클래스 계층을 구성할 수 있습니다.
 
 
 
