@@ -31,8 +31,14 @@ interface HeadLight {
 ```
 
 ```java
-interface Wiper {
-    void wipe();
+interface FuelDoor {
+    void fillUp(int fuel);
+}
+```
+
+```java
+interface Charger {
+    void charge(int electricEnergy);
 }
 ```
 
@@ -40,7 +46,9 @@ interface Wiper {
 class Vehicle {
     int speed;
 
-    Vehicle(int speed) {
+    Vehicle(String name, int mileage, int speed) {
+        this.name = name;
+        this.mileage = mileage;
         this.speed = speed;
     }
 
@@ -50,58 +58,65 @@ class Vehicle {
 }
 ```
 
-<pre class="language-java"><code class="lang-java"><strong>class Car extends Vehicle implements HeadLight, Wiper {
+<pre class="language-java"><code class="lang-java"><strong>class Car extends Vehicle implements HeadLight, FuelDoor {
 </strong>    int fuel;
 
-    Car(int speed, int fuel) {
-        super(speed);
+    Car(String name, int mileage, int speed, int fuel) {
+        super(name, mileage, speed);
         this.fuel = fuel;
     }
     
     @Override
     public void turnOn() {
-        System.out.println("차 전조등을 켭니다.");
+        System.out.println("내연차 전조등을 켭니다.");
     }
     
     @Override
-    public void wipe() {
-        System.out.println("와이퍼로 닦습니다.");
+    public void fillUp(int fuel) {
+        System.out.println("연료를 채웁니다.");
+        this.fuel += fuel
     }
 }
 </code></pre>
 
 ```java
-class Bicycle extends Vehicle implements HeadLight {
-    boolean hasBell;
+class ElectricCar extends Vehicle implements HeadLight, Charger {
+    int batteryAmount;
 
-    Bicycle(int speed, boolean hasBell) {
-        super(speed);
-        this.hasBell = hasBell;
+    ElectricCar(String name, int mileage, int speed, int batteryAmount) {
+        super(name, mileage, speed);
+        this.batteryAmount = batteryAmount;
     }
     
     @Override
     public void turnOn() {
-        System.out.println("자전거 전조등을 켭니다.");
+        System.out.println("전기차 전조등을 켭니다.");
+    }
+    
+    @Override
+    public void charge(int electricEnergy);
+        System.out.println("배터리를 충전합니다.");
+        batteryAmount += electricEnergy;
     }
 }
 ```
 
 상속은 is-a 관계에 적합한 반면,
 
-* 차는 운송수단이다.
-* 자전거는 운송수단이다.
+* 내연차는 운송수단이다.
+* 전기차는 운송수단이다.
 
 인터페이스는 has-a 관계에 적합합니다.
 
-* 차는 전조등, 와이퍼를 가진다.
-* 자전거는 전조등을 가진다.
+* 내연차는 전조등, 주유구를가진다.
+* 전기차는 전조등, 충전기를 가진다.
 
 
 
 ```java
 List<HeadLight> headLights = new ArrayList<>();
-headLights.add(new Car(0, 20));
-headLights.add(new Bicycle(0, true));
+headLights.add(new Car("내연차", 100, 0, 20));
+headLights.add(new ElectricCar("전기차", 50, 0, 70));
 
 for (HeadLight headLight: headLights) {
     headLight.turnOn();
@@ -111,11 +126,11 @@ for (HeadLight headLight: headLights) {
 아래 코드를 실행시켜보면 아래 결과가 나옵니다.
 
 ```
-차 전조등을 켭니다.
-자전거 전조등을 켭니다.
+내연차 전조등을 켭니다.
+전기차 전조등을 켭니다.
 ```
 
-headLights 에 자동차와 자전거를 담는 것이 이상해보이나, '전조등 기능을 가진 것들' 을 담는다고 생각하면 이치에 맞습니다. 그래서 인터페이스명을 `HeadLightable` , `Wipable` 등 `-able` 을 붙여 짓기도 합니다.
+headLights 에 자동차와 자전거를 담는 것이 이상해보이나, '전조등 기능을 가진 것들' 을 담는다고 생각하면 이치에 맞습니다. 그래서 인터페이스명을 `HeadLightable` , `Fillable`, `Chargable` 등 `-able` 을 붙여 짓기도 합니다.
 
 
 
