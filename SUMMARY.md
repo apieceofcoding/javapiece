@@ -15,7 +15,7 @@
   * [배열과 문자열 다루기](syntax/array-string.md)
   * [주석 (comment)](syntax/comment.md)
 * [© 클래스](class/README.md)
-  * [클래스의 구성](class/concept.md)
+  * [클래스는 왜 필요할까?](class/concept.md)
   * [클래스와 객체의 개념](class/class-vs-object.md)
   * [생성자](class/constructor.md)
   * [메소드](class/method.md)

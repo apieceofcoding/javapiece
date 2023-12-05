@@ -1,49 +1,81 @@
-# 클래스의 구성
+# 클래스는 왜 필요할까?
 
-### 클래스 **(Class)**
 
-클래스의 기본 정의는 아래 예시와 같습니다.
 
-```java
-class Car {
-}
-```
+## 자료 저장 예제
 
-`class` 라는 키워드, 클래스명(Car), 이어서 중괄호`{}`까지 열고 닫아주면 클래스 선언이 가능합니다.
-
-###
-
-### **멤버 변수와 메서드**
-
-#### **멤버 변수 (Instance Variables)**
-
-멤버 변수는 객체의 상태를 나타내는 변수로, 클래스 내부에 선언됩니다. 이 변수는 클래스 내의 모든 메서드에서 사용 가능합니다.
+예제로 자동차의 이름과 주행거리(km)를 저장해봅시다.
 
 ```java
-class Car {
-    String name;
-    int mileage;
-}
+String carName = "현대"
+int carMileage = 10000
+System.out.println(carName + " " + carMileage); // 현대 10000
 ```
 
-위의 `name`와 `mileage`는 `Car` 클래스의 멤버 변수입니다.
-
-멤버변수는 통상 필드(field), 프로퍼티(property = 속성) 라고도 불립니다.
+위와 같이 간단하게 저장하고 출력할 수 있습니다.
 
 
 
-#### **메서드 (Methods)**
-
-메서드는 클래스 내에서 정의된 동작을 수행하는 함수입니다. 다음은 `Car` 클래스의 `start()` 메서드의 예시입니다.
+그럼 이번에는 2대의 자동차의 이름과 주행거리를 저장해볼까요?
 
 ```java
-class Car {
-    void start() {
-        System.out.println("차량이 출발합니다.");
-    }
-}
+String carName1 = "현대"
+int carMileage1 = 10000
+System.out.println(carName1 + " " + carMileage1); // 현대 10000
+
+String carName2 = "기아"
+int carMileage2 = 20000
+System.out.println(carName2 + " " + carMileage2); // 기아 20000
 ```
 
-메서드는 통상 함수(function) 라고도 불립니다.
+위 처럼 가능합니다.
+
+
+
+하지만 아래 표의 데이터를 입력하려면 우리는 어떻게 해야할까요?
+
+| 자동차이름 | 주행거리  |
+| ----- | ----- |
+| 현대    | 10000 |
+| 기아    | 20000 |
+| 테슬라   | 5000  |
+| BMW   | 25000 |
+| 벤츠    | 15000 |
+
+위 예제처럼 자동차이름과 주행거리 변수를 각각 5개씩 만들어 해결해야 합니다.
+
+우리가 배운 것 중 이를 해결하기 위한 깔끔한 수단은 무엇일까요?
+
+
+
+## 배열
+
+배열을 사용하면 아래와 같이 해결 해볼 수 있습니다.
+
+```java
+String[] carNames = {"현대", "기아", "테슬라", "BMW", "벤츠"};
+int[] carMileages = {10000, 20000, 5000, 25000, 15000};
+for (int i = 0; i < 5; i++) {
+    String carName = carNames[i];
+    int carMileage = carMileages[i];
+    System.out.println(carName + " " + carMileage);
+}
+//
+현대 10000
+기아 20000
+테슬라 5000
+BMW 25000
+벤츠 15000
+```
+
+하지만, 이름과 주행거리를 각각 관리해야 한다는 점, 데이터의 크기 (5) 를 관리해야 한다는 점이 자료 관리를 어렵게 합니다.
+
+여기서 점점 자동차 이름과 자동차 주행거리를 한 곳에서 관리할 수 있으면 좋겠다는 생각이 떠오릅니다.
+
+
+
+그 해결방법으로 <mark style="background-color:orange;">클래스</mark>가 있습니다.
+
+다음 장에서 살펴보겠습니다.
 
 \
