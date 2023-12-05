@@ -87,14 +87,13 @@ class Car {
 
 ```java
 Car myCar = new Car();
-
 System.out.println(myCar.name); // null
 System.out.println(myCar.mileage); // 0
 
-myCar.name = "Hyundai";
-myCar.mileage = 100;
-System.out.println(myCar.name); // Hyundai
-System.out.println(myCar.mileage); // 100
+myCar.name = "현대";
+myCar.mileage = 10000;
+System.out.println(myCar.name); // 현대
+System.out.println(myCar.mileage); // 10000
 
 System.out.println(myCar); // 인스턴스가 저장된 주소
 ```
@@ -106,6 +105,37 @@ System.out.println(myCar); // 인스턴스가 저장된 주소
 그 다음으로 멤버변수 값을 수정하여 변경된 멤버변수 값을 출력했습니다.
 
 마지막으로, 객체 자체를 출력해봅시다. 그러면 객체(인스턴스)가 저장된 주소값을 출력하게 됩니다.
+
+
+
+
+
+***
+
+여기까지 클래스의 기본적인 개념을 배우느라 고생하셨습니다.
+
+아까 표에서 봤던 데이터를 클래스에 담아 출력해볼까요?
+
+```java
+Car[] cars = {
+    new Car("현대", 10000),
+    new Car("기아", 20000),
+    new Car("테슬라", 5000),
+    new Car("BMW", 15000),
+    new Car("벤츠", 25000),
+};
+Car{name='현대', mileage=10000}
+Car{name='기아', mileage=20000}
+Car{name='테슬라', mileage=5000}
+Car{name='BMW', mileage=15000}
+Car{name='벤츠', mileage=25000}
+```
+
+예제는 위와 같이 만들 수 있지만, 우리는 `생성자(constructor)` 와 `toString() 메소드`를 공부해야합니다.
+
+다음 장에서 만나볼게요!
+
+
 
 
 
