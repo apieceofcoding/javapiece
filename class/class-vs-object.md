@@ -72,12 +72,12 @@ class Car {
     int mileage;
 
     void start() {
-        System.out.println("차량이 출발합니다.");
+        System.out.println(name + " 차량이 출발합니다.");
     }
 }
 ```
 
-여기서 `Car` 클래스는 자동차의 템플릿을 정의하며, `name`와 `mileage`는 자동차의 속성을 나타내고, `drive()`는 자동차의 동작을 나타냅니다.
+여기서 `Car` 클래스는 자동차의 템플릿을 정의하며, `name`와 `mileage`는 자동차의 속성을 나타내고, `start()`는 자동차의 동작을 나타냅니다.
 
 
 

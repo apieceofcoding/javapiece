@@ -50,7 +50,7 @@ class Car extends Vehicle {
     // Vehicle 추상클래스에 있는 추상메소드이므로 반드시 구현
     @Override
     void start() {
-        System.out.println("엔진을 가동합니다.");
+        System.out.println(name + " 내연차가 출발합니다.");
     }
     
     // 그 외 메소드 구현 (선택)
@@ -73,7 +73,7 @@ class ElectricCar extends Vehicle {
     // Vehicle 추상클래스에 있는 추상메소드이므로 반드시 구현
     @Override
     void start() {
-        System.out.println("자전거가 출발합니다.");
+        System.out.println(name + " 전기차가 출발합니다.");
     }
 
     // 그 외 메소드 구현 (선택)

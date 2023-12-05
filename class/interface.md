@@ -53,7 +53,7 @@ class Vehicle {
     }
 
     void start() {
-        System.out.println("운송수단이 출발합니다.");
+        System.out.println(name + " 운송수단이 출발합니다.");
     }
 }
 ```

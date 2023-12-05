@@ -23,7 +23,7 @@ class Car {
     }
 
     void start() {
-        System.out.println("차량이 출발합니다.");
+        System.out.println(name + " 차량이 출발합니다.");
     }
 
     void accelerate(int increase) {
@@ -58,7 +58,7 @@ class Car {
     }
 
     void start() {
-        System.out.println("차량이 출발합니다.");
+        System.out.println(name + " 차량이 출발합니다.");
     }
 
     // accelerate() 메소드 오버로딩 (버전 1)
@@ -110,7 +110,7 @@ class Car {
     }
 
     void start() {
-        System.out.println("차량이 출발합니다.");
+        System.out.println(name + " 차량이 출발합니다.");
     }
 
     void accelerate(int increase) {
