@@ -20,7 +20,7 @@
 
 #### 추상클래스 예제
 
-아래의 예제는 `Vehicle`를 추상 클래스로 정의한 후, `Car`와 `Bicycle` 클래스에서 이를 상속하고 필요한 메서드를 구현하는 사용 예제입니다.
+아래의 예제는 `Vehicle`를 추상 클래스로 정의한 후, `Car`와 `ElectricCar` 클래스에서 이를 상속하고 필요한 메서드를 구현하는 사용 예제입니다.
 
 <pre class="language-java"><code class="lang-java"><strong>abstract class Vehicle {
 </strong>    String name;
