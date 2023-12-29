@@ -14,6 +14,8 @@
   * [반복문 (for, while, do-while)](syntax/loop.md)
   * [배열과 문자열 다루기](syntax/array-string.md)
   * [주석 (comment)](syntax/comment.md)
+* [🎛 제어자](undefined/README.md)
+  * [접근제어자](undefined/undefined.md)
 * [© 클래스](class/README.md)
   * [클래스는 왜 필요할까?](class/concept.md)
   * [클래스와 객체의 개념](class/class-vs-object.md)
@@ -25,4 +27,3 @@
 * [🧺 자바 컬렉션 (Collection)](collection/README.md)
   * [컬렉션 프레임워크](collection/framework.md)
   * [컬렉션 프레임워크 기능](collection/undefined.md)
-* [🎛 제어자](undefined.md)
