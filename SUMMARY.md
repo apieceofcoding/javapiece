@@ -27,6 +27,7 @@
   * [접근자(Getter)와 수정자(Setter)](undefined/getter-setter.md)
   * [final 제어자](undefined/final.md)
   * [static 제어자](undefined/static.md)
+  * [내부 클래스와 static 내부 클래스](undefined/static-1.md)
 * [🧺 자바 컬렉션 (Collection)](collection/README.md)
   * [컬렉션 프레임워크](collection/framework.md)
   * [컬렉션 프레임워크 기능](collection/undefined.md)
