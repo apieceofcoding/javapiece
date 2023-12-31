@@ -16,5 +16,5 @@
 
 **5.5 Static factory method**&#x20;
 
-**5.6 생성자와 빌더패턴 (Builder Pattern)**
+**5.6 빌더패턴 (Builder Pattern)**
 
