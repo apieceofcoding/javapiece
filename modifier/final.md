@@ -147,7 +147,7 @@ public class Main {
         int newPrice = 9000;
         // 100줄이상 로직
 
-        Product product = new Product("장갑", newPrice);
+        Product product = new Product(newPrice);
         System.out.println(product.price); // 9000
     }
 }
