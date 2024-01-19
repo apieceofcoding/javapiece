@@ -25,7 +25,7 @@
 * [🎛 제어자](modifier/README.md)
   * [접근제어자](modifier/access-modifier.md)
   * [접근자(Getter)와 수정자(Setter)](modifier/getter-setter.md)
-  * [final 제어자](modifier/final.md)
+  * [final 제어자](modifier/final.md)
   * [static 제어자](modifier/static.md)
   * [내부 클래스와 static 내부 클래스](modifier/static-inner-class.md)
   * [정적 팩토리 메소드(Static factory method)](modifier/static-factory-method.md)
