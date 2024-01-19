@@ -79,7 +79,7 @@ final 의 장점은 명백합니다. 변수에 초기에 설정해 놓은 값을
 `final` 키워드를 사용하여 상수를 선언할 수 있습니다. 상수는 한 번 할당되면 값을 변경할 수 없으며, 대문자와 밑줄로 작성된 명명 규칙을 따르는 것이 관례입니다.
 
 ```java
-public class Constants {\
+public class Constants {
     // 상수 선언
     public static final int MAX_VALUE = 100;
     public static final String APPLICATION_NAME = "MyApp";
