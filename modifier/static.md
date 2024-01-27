@@ -153,13 +153,17 @@ public class Application {
 
 <pre class="language-java"><code class="lang-java">public class Application {
     public static void main(String[] args) {
+        double pi = MathUtils.PI;
+        System.out.println(pi);
+
         double circumference = MathUtils.circumference(1);
         System.out.println(circumference);
     }
 }
 <strong>
-</strong><strong>PI 초기화
-</strong>6.28318530717958
+</strong>PI 초기화
+3.14159265358979
+6.28318530717958
 </code></pre>
 
 
