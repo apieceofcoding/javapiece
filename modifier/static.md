@@ -1,8 +1,33 @@
 # static 제어자
 
-사용하는 코드 전역에서 사용하는 변수는 어떻게 생성하면 효율적일까요?
+
+
+```java
+public class Application {
+    public static void main(String[] args) {
+        double pi = 3.141592;
+        System.out.println(pi);
+    }
+}
+```
+
+pi (파이) 는 원주율이며, 변하지 않는 상수입니다.&#x20;
+
+그리고 값을 기억하기도 쉽지 않아 매번 정의하여 사용하면 실수가 발생할 수 있습니다.
+
+문제는 이 값이 여러 군데 선언되어 있었는데, 값이 변경될 일이 생겼을 때 관리하기가 어렵습니다.
+
+* 파이는 수학적 값이라 정말 그럴 수 없겠지만, 프로그래밍을 하다보면 이렇게 절대 바뀌지 않으리라 생각했던 것이 꼭 변경되기도 합니다.
+
+
+
+## 한 번 정의하고, 공통으로 사용하고 싶다.
+
+위 문제를 어떻게 해결하면 좋을까요?
 
 변수를 한 번 생성하고, 이를 전역적으로 공유해서 사용하면 됩니다.
+
+
 
 자바에서는 static 제어자를 통해 변수를 공용공간에 저장하고 사용할 수 있습니다.
 
@@ -10,7 +35,7 @@
 
 
 
-예를 들어 `main.java` 파일을 컴파일러를 통해 컴파일하면, `main.class` 가 생성됩니다. 그리고 `java` 명령어를 통해 클래스파일을 실행하면, 아래와 같이 JVM 실행 환경이 구성됩니다.
+`main.java` 파일을 컴파일러를 통해 컴파일하면, `main.class` 가 생성됩니다. 그리고 `java` 명령어를 통해 클래스파일을 실행하면, 아래와 같이 JVM 실행 환경이 구성됩니다.
 
 그 중 Runtime Data Areas 에 우리가 선언한 변수가 저장되는데, Method Area 에 static 변수가 저장됩니다.
 
@@ -29,6 +54,24 @@
 ## **Static 변수 (클래스 변수)**
 
 * 클래스의 모든 인스턴스가 공유하는 변수를 정의할 때 사용합니다.
+
+<pre class="language-java"><code class="lang-java"><strong>public class MathUtils {
+</strong>    // static 변수
+    public static final double PI = 3.14159265358979;
+}
+</code></pre>
+
+```java
+public class Application {
+    public static void main(String[] args) {
+        double pi = MathUtils.PI;
+        System.out.println(pi);
+    }
+}
+```
+
+
+
 *   객체가 생성되기 전에 메모리에 할당되며, 모든 인스턴스에서 동일한 값을 유지합니다.
 
     ```java
@@ -55,7 +98,7 @@
     }
     ```
 
-
+    따라서 static 변수를 변경해도 되는지 심도있는 고민을 한 후 결정하는 것이 좋으며, 보통 상수로 사용하는 경우는 final 을 붙여 안전하게 변수가 변경되지 않도록 합니다.
 
 
 
@@ -66,18 +109,26 @@
 
     ```java
     public class MathUtils {
-        // static 메서드
-        public static int add(int a, int b) {
-            return a + b;
-        }
+        // static 변수
+        public static final double PI = 3.14159265358979;
 
-        public static void main(String[] args) {
-            // static 메서드 호출
-            int result = MathUtils.add(5, 3);
-            System.out.println("Result: " + result);
+        // static 메서드
+        public static double circumference(int radius) {
+            return 2 * PI * radius;
         }
     }
     ```
+
+```java
+public class Application {
+    public static void main(String[] args) {
+        double circumference = MathUtils.circumference(1);
+        System.out.println(circumference);
+    }
+}
+```
+
+
 
 
 
@@ -87,25 +138,29 @@
 *   객체 생성과 관계없이 클래스 로딩 시에 실행됩니다.
 
     ```java
-    public class Counter {
+    public class MathUtils {
         // static 변수
-        public static int count;
+        public static final double PI;
 
-        // static 블록 (클래스 초기화 블록)
         static {
-            // 클래스 변수 초기화
-            count = 10;
-            System.out.println("Static Block 초기화");
-        }
-
-        public static void main(String[] args) {
-            // static 변수 사용
-            System.out.println("Static Variable: " + Counter.count);
+            System.out.println("PI 초기화");
+            PI = 3.14159265358979;
         }
     }
     ```
 
 `static` 제어자는 객체 간에 데이터를 공유하거나 인스턴스를 만들지않고 작업을 수행하는 데 유용합니다. 이를 통해 메모리 사용량을 줄이고 코드 실행 성능을 향상시킬 수 있습니다.
+
+<pre class="language-java"><code class="lang-java">public class Application {
+    public static void main(String[] args) {
+        double circumference = MathUtils.circumference(1);
+        System.out.println(circumference);
+    }
+}
+<strong>
+</strong><strong>PI 초기화
+</strong>6.28318530717958
+</code></pre>
 
 
 
